@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gửi bình luận nhanh #VIB</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f2f3f5;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+    .box{background:white;padding:24px;border-radius:12px;max-width:400px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+    button{background:#1877f2;color:white;border:none;padding:14px 20px;border-radius:8px;font-size:16px;margin-top:12px}
+    button:active{opacity:.8}
+    .note{font-size:14px;color:#333;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Gửi bình luận nhanh 💬</h2>
+    <p>Nội dung sẽ được sao chép tự động:</p>
+    <p><strong>#CXMasteryJourney #VIB</strong></p>
+    <button id="sendBtn">Sao chép & mở Facebook</button>
+    <p class="note">Sau khi mở Facebook, hãy <b>dán vào ô bình luận</b> rồi nhấn Gửi nhé!</p>
+  </div>
+
+  <script>
+    const fbPost = "https://www.facebook.com/share/1GiLKDxwPg/"; // 👉 sửa thành link bài viết thật
+    const comment = "#CXMasteryJourney #VIB";
+
+    document.getElementById("sendBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(comment);
+        alert("✅ Đã sao chép: " + comment);
+      } catch(e) {
+        window.prompt("Sao chép thủ công nhé (Ctrl+C):", comment);
+      }
+      window.location.href = fbPost;
+    });
+  </script>
+</body>
+</html>
